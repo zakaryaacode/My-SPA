@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claim Your FREE $50 Gift Card - Instant Entry</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-light: linear-gradient(180deg, #FCFDFF 0%, #F7FAFF 100%);
+            --bg-dark: linear-gradient(180deg, #0F1724 0%, #071026 100%);
+            --card-light: #FFFFFF;
+            --card-dark: rgba(255, 255, 255, 0.03);
+            --text-heading-light: #111827;
+            --text-heading-dark: #E6EEF8;
+            --text-body-light: #374151;
+            --text-body-dark: #B8C7D8;
+            --accent-light: #FFB800;
+            --accent-dark: #FFD24D;
+            --accent-text-light: #101820;
+            --accent-text-dark: #071026;
+            --secondary-accent: #1E6FEB;
+            --shadow-light: rgba(20, 30, 50, 0.08);
+            --shadow-dark: rgba(0, 0, 0, 0.2);
+            --border-light: rgba(0, 0, 0, 0.1);
+            --border-dark: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-body-light);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 15px;
+        }
+
+        body.dark-mode {
+            background: var(--bg-dark);
+            color: var(--text-body-dark);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 25px;
+        }
+
+        .scarcity-indicator {
+            background: rgba(255, 184, 0, 0.1);
+            color: var(--text-heading-light);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .dark-mode .scarcity-indicator {
+            background: rgba(255, 210, 77, 0.15);
+            color: var(--text-heading-dark);
+        }
+
+        .trust-icons {
+            display: flex;
+            gap: 10px;
+            font-size: 12px;
+            align-items: center;
+        }
+
+        .trust-icons span {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            color: var(--text-body-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dark-mode .theme-toggle {
+            color: var(--text-body-dark);
+        }
+
+        /* Hero Card */
+        .hero-card {
+            background: var(--card-light);
+            border-radius: 20px;
+            padding: 30px 25px;
+            box-shadow: 0 10px 30px var(--shadow-light);
+            text-align: center;
+            margin-bottom: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dark-mode .hero-card {
+            background: var(--card-dark);
+            box-shadow: 0 10px 30px var(--shadow-dark);
+            backdrop-filter: blur(10px);
+        }
+
+        .gift-card {
+            width: 220px;
+            height: 130px;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, #FFB800 0%, #FF8A00 100%);
+            border-radius: 12px;
+            position: relative;
+            transform: rotate(3deg);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #101820;
+            font-weight: 700;
+            overflow: hidden;
+        }
+
+        .dark-mode .gift-card {
+            background: linear-gradient(135deg, #FFD24D 0%, #FFB800 100%);
+        }
+
+        .gift-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .gift-card-value {
+            font-size: 32px;
+            margin-bottom: 5px;
+        }
+
+        .gift-card-text {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-heading-light);
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .dark-mode h1 {
+            color: var(--text-heading-dark);
+        }
+
+        .subheadline {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: var(--text-body-light);
+        }
+
+        .dark-mode .subheadline {
+            color: var(--text-body-dark);
+        }
+
+        .benefits {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .benefit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .benefit-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(30, 111, 235, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: var(--secondary-accent);
+        }
+
+        .benefit-text {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            background: var(--accent-light);
+            color: var(--accent-text-light);
+            border: none;
+            border-radius: 12px;
+            padding: 18px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            animation: pulse 6s infinite;
+        }
+
+        .dark-mode .cta-button {
+            background: var(--accent-dark);
+            color: var(--accent-text-dark);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            3% { transform: scale(1.05); }
+            6% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+
+        .privacy-note {
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .fallback-link {
+            font-size: 14px;
+            color: var(--secondary-accent);
+            text-decoration: underline;
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        /* Social Proof */
+        .social-proof {
+            margin-bottom: 25px;
+        }
+
+        .live-counter {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .live-indicator {
+            width: 8px;
+            height: 8px;
+            background: #10B981;
+            border-radius: 50%;
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        .testimonials {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            padding: 10px 0;
+            scrollbar-width: none;
+        }
+
+        .testimonials::-webkit-scrollbar {
+            display: none;
+        }
+
+        .testimonial {
+            min-width: 200px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 12px;
+            padding: 15px;
+            font-size: 14px;
+            border: 1px solid var(--border-light);
+        }
+
+        .dark-mode .testimonial {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-dark);
+        }
+
+        .testimonial-text {
+            margin-bottom: 8px;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            font-size: 13px;
+            color: var(--text-heading-light);
+        }
+
+        .dark-mode .testimonial-author {
+            color: var(--text-heading-dark);
+        }
+
+        /* FAQ & Footer */
+        .faq {
+            margin-bottom: 25px;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 15px;
+        }
+
+        .dark-mode .faq-item {
+            border-bottom: 1px solid var(--border-dark);
+        }
+
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .faq-answer {
+            font-size: 14px;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 13px;
+            margin-top: auto;
+            padding-top: 20px;
+        }
+
+        .footer a {
+            color: var(--text-body-light);
+            text-decoration: none;
+        }
+
+        .dark-mode .footer a {
+            color: var(--text-body-dark);
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal {
+            background: var(--card-light);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transform: translateY(20px);
+            transition: transform 0.3s;
+        }
+
+        .dark-mode .modal {
+            background: var(--card-dark);
+        }
+
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+        }
+
+        .modal h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--text-heading-light);
+        }
+
+        .dark-mode .modal h2 {
+            color: var(--text-heading-dark);
+        }
+
+        .modal p {
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        .email-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .email-input {
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid var(--border-light);
+            background: var(--card-light);
+            font-size: 16px;
+            color: var(--text-heading-light);
+        }
+
+        .dark-mode .email-input {
+            background: var(--card-dark);
+            border: 1px solid var(--border-dark);
+            color: var(--text-heading-dark);
+        }
+
+        .email-input::placeholder {
+            color: var(--text-body-light);
+        }
+
+        .dark-mode .email-input::placeholder {
+            color: var(--text-body-dark);
+        }
+
+        .privacy-micro {
+            font-size: 13px;
+            text-align: left;
+            margin-bottom: 5px;
+        }
+
+        .submit-button {
+            background: var(--accent-light);
+            color: var(--accent-text-light);
+            border: none;
+            border-radius: 10px;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dark-mode .submit-button {
+            background: var(--accent-dark);
+            color: var(--accent-text-dark);
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .error-message {
+            color: #EF4444;
+            font-size: 14px;
+            text-align: left;
+            display: none;
+        }
+
+        /* Success State */
+        .success-state {
+            display: none;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .success-icon {
+            font-size: 60px;
+            color: #10B981;
+            margin-bottom: 20px;
+        }
+
+        .success-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-heading-light);
+        }
+
+        .dark-mode .success-title {
+            color: var(--text-heading-dark);
+        }
+
+        .success-message {
+            margin-bottom: 25px;
+            font-size: 16px;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .countdown-value {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-light);
+            color: var(--accent-text-light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .dark-mode .countdown-value {
+            background: var(--accent-dark);
+            color: var(--accent-text-dark);
+        }
+
+        .countdown-label {
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .continue-button {
+            background: var(--secondary-accent);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 15px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .continue-button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Confetti */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: var(--accent-light);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        @media (max-width: 480px) {
+            .hero-card {
+                padding: 25px 20px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .gift-card {
+                width: 200px;
+                height: 120px;
+            }
+            
+            .benefits {
+                gap: 15px;
+            }
+        }
+
+ 
+
+
+
+
+footer {
+    padding: 40px 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+    color: var(--accent);
+}
+
+.copyright {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="scarcity-indicator">
+                <span>🔥</span> Only 15 spots left this hour
+            </div>
+            <div class="trust-icons">
+                <span>🔒 Secure</span>
+                <span>✅ Trusted</span>
+            </div>
+            <button class="theme-toggle" id="themeToggle">🌙</button>
+        </div>
+
+        <!-- Hero Card -->
+        <div class="hero-card">
+            <div class="gift-card">
+                <div class="gift-card-value">GIFT CARD</div>
+                <div class="gift-card-text"></div>
+            </div>
+            
+            <h1>Claim Your FREE Gift Card — Instant Entry
+                .Test your luck 
+            </h1>
+            <p class="subheadline">Limited daily spots — just enter your email and confirm to participate.</p>
+            
+            <div class="benefits">
+                <div class="benefit">
+                    <div class="benefit-icon">✓</div>
+                    <div class="benefit-text">Easy: just your email</div>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">⚡</div>
+                    <div class="benefit-text">Fast: immediate entry</div>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">🔒</div>
+                    <div class="benefit-text">Safe: we never sell your data</div>
+                </div>
+            </div>
+            
+            <div class="cta-section">
+                <button class="cta-button" id="ctaButton">Enter to Win</button>
+                <div class="privacy-note">
+                    <span>🔒</span> No purchase necessary. 100% secure. Winners contacted via email.
+                </div>
+                <a href="#" class="fallback-link">Or if the button doesn't work, click this link.</a>
+            </div>
+        </div>
+
+        <!-- Social Proof -->
+        <div class="social-proof">
+            <div class="live-counter">
+                <div class="live-indicator"></div>
+                <span>23 people are viewing this now</span>
+            </div>
+            
+            <div class="testimonials">
+                <div class="testimonial">
+                    <div class="testimonial-text">"I got mine in 3 days — so easy!"</div>
+                    <div class="testimonial-author">— Fatima, 27</div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">"Entered yesterday and already got my $25 card!"</div>
+                    <div class="testimonial-author">— James, 32</div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">"No spam, just a simple entry process."</div>
+                    <div class="testimonial-author">— Sarah, 24</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="faq">
+            <div class="faq-item">
+                <div class="faq-question">How does it work?</div>
+                <div class="faq-answer">Enter your email, confirm, and get access — no purchase required.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">When will I receive my gift card?</div>
+                <div class="faq-answer">Winners are selected daily and notified via email within 24 hours.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Is this really free?</div>
+                <div class="faq-answer">Yes! No credit card required. Just your email to enter.</div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+         <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#terms">Terms & Conditions</a>
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#contact">Contact Us</a>
+                <a href="#faq">FAQ</a>
+            </div>
+            <p class="copyright">
+                © 2023 GiftRewards. All rights reserved. Eligible users only; final delivery after completing offer partner's short task.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <h2>You're one step away</h2>
+            <p>Enter your email to complete your entry and get a chance to win a $50 gift card.</p>
+            
+            <div class="email-form" id="emailForm">
+                <input type="email" class="email-input" id="emailInput" placeholder="Enter your email (we'll only use it to contact winners)">
+                <div class="privacy-micro">We respect your privacy — unsubscribe anytime.</div>
+                <div class="error-message" id="errorMessage">Please enter a valid email.</div>
+                <button class="submit-button" id="submitButton">Complete My Entry</button>
+            </div>
+            
+            <div class="success-state" id="successState">
+                <div class="success-icon">🎉</div>
+                <h2 class="success-title">Success!</h2>
+                <p class="success-message">Thanks! Check your inbox to confirm — you're entered.</p>
+                
+                <div class="countdown">
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="hours">12</div>
+                        <div class="countdown-label">HOURS</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="minutes">34</div>
+                        <div class="countdown-label">MINUTES</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="seconds">56</div>
+                        <div class="countdown-label">SECONDS</div>
+                    </div>
+                </div>
+                
+                <button class="continue-button" id="continueButton">Go to Offer</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        const themeToggle = document.getElementById('themeToggle');
+        const ctaButton = document.getElementById('ctaButton');
+        const modalOverlay = document.getElementById('modalOverlay');
+        const emailForm = document.getElementById('emailForm');
+        const successState = document.getElementById('successState');
+        const emailInput = document.getElementById('emailInput');
+        const errorMessage = document.getElementById('errorMessage');
+        const submitButton = document.getElementById('submitButton');
+        const continueButton = document.getElementById('continueButton');
+        const hoursElement = document.getElementById('hours');
+        const minutesElement = document.getElementById('minutes');
+        const secondsElement = document.getElementById('seconds');
+
+        // Theme Toggle
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            themeToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+        });
+
+        // Initialize theme from localStorage
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeToggle.textContent = '☀️';
+        }
+
+        // CTA Button Click
+        ctaButton.addEventListener('click', () => {
+            modalOverlay.classList.add('active');
+        });
+
+        // Close modal when clicking outside
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                modalOverlay.classList.remove('active');
+            }
+        });
+
+        // Form Submission
+        submitButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            const email = emailInput.value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (!emailRegex.test(email)) {
+                errorMessage.style.display = 'block';
+                return;
+            }
+            
+            errorMessage.style.display = 'none';
+            
+            // Simulate form submission
+            submitButton.textContent = 'Submitting...';
+            submitButton.disabled = true;
+            
+            setTimeout(() => {
+                emailForm.style.display = 'none';
+                successState.style.display = 'block';
+                
+                // Create confetti effect
+                createConfetti();
+                
+                // Start countdown timer
+                startCountdown();
+            }, 1500);
+        });
+
+        // Continue Button (CPA redirect)
+        continueButton.addEventListener('click', () => {
+            // In a real implementation, this would redirect to the CPA offer
+            alert('Redirecting to CPA offer...');
+            // window.location.href = 'YOUR_CPA_LINK_HERE';
+        });
+
+        // Countdown Timer
+        function startCountdown() {
+            let hours = 12;
+            let minutes = 34;
+            let seconds = 56;
+            
+            const countdownInterval = setInterval(() => {
+                seconds--;
+                
+                if (seconds < 0) {
+                    seconds = 59;
+                    minutes--;
+                    
+                    if (minutes < 0) {
+                        minutes = 59;
+                        hours--;
+                        
+                        if (hours < 0) {
+                            clearInterval(countdownInterval);
+                            return;
+                        }
+                    }
+                }
+                
+                hoursElement.textContent = hours.toString().padStart(2, '0');
+                minutesElement.textContent = minutes.toString().padStart(2, '0');
+                secondsElement.textContent = seconds.toString().padStart(2, '0');
+            }, 1000);
+        }
+
+        // Confetti Effect
+        function createConfetti() {
+            const colors = ['#FFB800', '#FFD24D', '#1E6FEB', '#10B981', '#EF4444'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.top = '-10px';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                document.body.appendChild(confetti);
+                
+                // Animate confetti
+                const animation = confetti.animate([
+                    { 
+                        top: '-10px', 
+                        opacity: 1,
+                        transform: `rotate(0deg) translateX(${Math.random() * 100 - 50}px)`
+                    },
+                    { 
+                        top: '100vh', 
+                        opacity: 0,
+                        transform: `rotate(${Math.random() * 360}deg) translateX(${Math.random() * 100 - 50}px)`
+                    }
+                ], {
+                    duration: 2000 + Math.random() * 3000,
+                    easing: 'cubic-bezier(0.1, 0.8, 0.3, 1)'
+                });
+                
+                // Remove confetti after animation
+                animation.onfinish = () => {
+                    confetti.remove();
+                };
+            }
+        }
+
+        // Simulate live counter updates
+        function updateLiveCounter() {
+            const liveCounter = document.querySelector('.live-counter span');
+            const currentCount = parseInt(liveCounter.textContent) || 23;
+            const newCount = currentCount + Math.floor(Math.random() * 3) - 1;
+            liveCounter.textContent = Math.max(15, newCount) + ' people are viewing this now';
+        }
+
+        // Update live counter every 10 seconds
+        setInterval(updateLiveCounter, 10000);
+
+        // Simulate recent claims
+        function simulateRecentClaim() {
+            const names = ['Ahmed', 'Jessica', 'Michael', 'Sophia', 'David', 'Emma'];
+            const cities = ['New York', 'London', 'Sydney', 'Toronto', 'Berlin', 'Tokyo'];
+            
+            const name = names[Math.floor(Math.random() * names.length)];
+            const city = cities[Math.floor(Math.random() * cities.length)];
+            const amount = Math.random() > 0.5 ? '$50' : '$25';
+            const minutes = Math.floor(Math.random() * 10) + 1;
+            
+            // In a real implementation, this would update a live feed
+            console.log(`${name} from ${city} just claimed a ${amount} gift card — ${minutes} minute${minutes > 1 ? 's' : ''} ago`);
+        }
+
+        // Simulate a claim every 30 seconds
+        setInterval(simulateRecentClaim, 30000);
+    </script>
+</body>
+</html>
