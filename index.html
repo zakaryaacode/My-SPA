@@ -455,36 +455,6 @@
             margin-bottom: 20px;
             font-size: 15px;
         }
-
-        .email-form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .email-input {
-            padding: 15px;
-            border-radius: 10px;
-            border: 1px solid var(--border-light);
-            background: var(--card-light);
-            font-size: 16px;
-            color: var(--text-heading-light);
-        }
-
-        .dark-mode .email-input {
-            background: var(--card-dark);
-            border: 1px solid var(--border-dark);
-            color: var(--text-heading-dark);
-        }
-
-        .email-input::placeholder {
-            color: var(--text-body-light);
-        }
-
-        .dark-mode .email-input::placeholder {
-            color: var(--text-body-dark);
-        }
-
         .privacy-micro {
             font-size: 13px;
             text-align: left;
@@ -586,7 +556,7 @@
 
         .continue-button {
             background: var(--secondary-accent);
-            color: white;
+            color: rgb(255, 255, 255);
             border: none;
             border-radius: 10px;
             padding: 15px 30px;
@@ -683,17 +653,17 @@ footer {
 
 .cta-button {
     display: inline-block;
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-    color: white;
+   background: linear-gradient(135deg, #FFB800 0%, #FFD24D 100%);
+    color: rgb(0, 0, 0);
     padding: 18px 40px;
     border-radius: 50px;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: 700;
     text-decoration: none;
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 6px 20px rgba(106, 17, 203, 0.4);
+    box-shadow: 0 6px 20px rgba(255, 184, 0, 0.4);
     position: relative;
     overflow: hidden;
     
@@ -705,15 +675,16 @@ footer {
 @keyframes pulseScale {
     0% {
         transform: scale(1);
-        box-shadow: 0 6px 20px rgba(106, 17, 203, 0.4);
+       box-shadow: 0 6px 20px rgba(255, 184, 0, 0.8);
+
     }
     50% {
         transform: scale(1.05);
-        box-shadow: 0 8px 25px rgba(106, 17, 203, 0.6);
+        box-shadow: 0 6px 20px rgba(255, 184, 0, 1);;
     }
     100% {
         transform: scale(1);
-        box-shadow: 0 6px 20px rgba(106, 17, 203, 0.4);
+       box-shadow: 0 6px 20px rgba(255, 184, 0, 0.8);
     }
 }
 
@@ -721,13 +692,13 @@ footer {
 .cta-button:hover {
     animation: none; /* Stop continuous animation on hover */
     transform: scale(1.1);
-    box-shadow: 0 10px 30px rgba(106, 17, 203, 0.8);
-    background: linear-gradient(135deg, #5a0db5 0%, #1c68f0 100%);
+    box-shadow: 0 10px 30px  rgba(255, 184, 0, 0.8);
+    background: linear-gradient(135deg, #ffe600 0%, #fff200 100%);
 }
 
 .cta-button:active {
     transform: scale(0.98);
-    box-shadow: 0 4px 15px rgba(106, 17, 203, 0.6);
+    box-shadow: 0 4px 15px rgba(255, 187, 0, 0.6);
 }
 
 /* Optional: Add a subtle shine effect on hover */
@@ -738,7 +709,7 @@ footer {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    background: linear-gradient(90deg, transparent, #c8ff0033, transparent);
     transition: left 0.5s;
 }
 
@@ -790,7 +761,7 @@ footer {
             </div>
             
             <div class="cta-section">
-                <button class="cta-button" id="ctaButton">Enter to Win</button>
+                <a  href="https://singingfiles.com/show.php?l=0&u=2462539&id=69083"             class="cta-button" id="ctaButton">Enter Now </a>
                 <div class="privacy-note">
                     <span>🔒</span> No purchase necessary. 100% secure. Winners contacted via email.
                 </div>
@@ -848,23 +819,12 @@ footer {
                 <a href="#faq">FAQ</a>
             </div>
             <p class="copyright">
-                © 2023 GiftRewards. All rights reserved. Eligible users only; final delivery after completing offer partner's short task.
+                © 2025 GiftRewards. All rights reserved. Eligible users only; final delivery after completing offer partner's short task.
             </p>
         </div>
     </footer>
 
-    <!-- Modal -->
-    <div class="modal-overlay" id="modalOverlay">
-        <div class="modal">
-            <h2>You're one step away</h2>
-            <p>Enter your email to complete your entry and get a chance to win a $50 gift card.</p>
-            
-            <div class="email-form" id="emailForm">
-                <input type="email" class="email-input" id="emailInput" placeholder="Enter your email (we'll only use it to contact winners)">
-                <div class="privacy-micro">We respect your privacy — unsubscribe anytime.</div>
-                <div class="error-message" id="errorMessage">Please enter a valid email.</div>
-                <button class="submit-button" id="submitButton">Complete My Entry</button>
-            </div>
+   
             
             <div class="success-state" id="successState">
                 <div class="success-icon">🎉</div>
@@ -919,11 +879,7 @@ footer {
             themeToggle.textContent = '☀️';
         }
 
-        // CTA Button Click
-        ctaButton.addEventListener('click', () => {
-            modalOverlay.classList.add('active');
-        });
-
+       
         // Close modal when clicking outside
         modalOverlay.addEventListener('click', (e) => {
             if (e.target === modalOverlay) {
